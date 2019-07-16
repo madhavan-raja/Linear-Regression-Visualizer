@@ -1,18 +1,21 @@
 let points = [];
 
+let pointSize = 5;
+
 function setup()
 {
-	createCanvas(600, 600);
+	// createCanvas(1000, 700);
+	createCanvas(windowWidth - 5, windowHeight - 5);
 }
 
 function draw()
 {
-	background(0);
+	background(34);
 
 	for (i = 0; i < points.length; i++)
 	{
 		let cur = points[i];
-		ellipse(cur[0], cur[1], 10, 10);
+		ellipse(cur[0], cur[1], pointSize, pointSize);
 	}
 
 	let n = points.length;
@@ -35,10 +38,11 @@ function draw()
 
 	stroke(255);
 	strokeWeight(2);
-	line(0, c, 600, m * 600 + c);
+	line(0, c, width, m * width + c);
 }
 
 function mousePressed()
 {
-	points.push([mouseX, mouseY]);
+	if (mouseButton == LEFT && mouseX <= width && mouseY <= height)
+		points.push([mouseX, mouseY]);
 }
