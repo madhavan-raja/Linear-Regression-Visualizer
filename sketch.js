@@ -38,6 +38,14 @@ function draw()
 	stroke(255);
 	strokeWeight(2);
 	line(0, c, width, m * width + c);
+
+	fill(255);
+	noStroke();
+	textSize(16);
+	textFont('Tajawal');
+	text('X: ' + mouseX, 5, 21);
+	text('Y: ' + mouseY, 5, 42);
+	text('Points: ' + n, 5, 68);
 }
 
 function mousePressed()
