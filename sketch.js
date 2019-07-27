@@ -4,7 +4,6 @@ let pointSize = 5;
 
 function setup()
 {
-	// createCanvas(1000, 700);
 	createCanvas(windowWidth - 5, windowHeight - 5);
 }
 
@@ -24,7 +23,7 @@ function draw()
 	let sumxq = 0;
 	let sumy = 0;
 
-	for (i = 0; i < n; i++)
+	for (let i = 0; i < n; i++)
 	{
 		let cur = points[i];
 		sumxy += cur[0] * cur[1];
@@ -43,6 +42,11 @@ function draw()
 
 function mousePressed()
 {
-	if (mouseButton == LEFT && mouseX <= width && mouseY <= height)
-		points.push([mouseX, mouseY]);
+	if (mouseX <= width && mouseY <= height)
+	{
+		if (mouseButton == LEFT)
+			points.push([mouseX, mouseY]);
+		else if (mouseButton == RIGHT)
+			points.pop();
+	}
 }
